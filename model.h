@@ -32,6 +32,7 @@ public:
     void destroyShaders();
     void readOFFFile(const QString &fileName);
     void drawModel();
+
 };
 
 #endif // MODEL_H
