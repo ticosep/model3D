@@ -24,7 +24,12 @@ class openglwidget : public QOpenGLWidget , protected QOpenGLExtraFunctions
 
     signals:
         void statusBarMessage(QString);
+
+
     public slots:
+        void transFormX(int value);
+        void transFormY(int value);
+        void transFormZ(int value);
         void showFileOpenDialog();
 
 };

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>742</width>
-    <height>634</height>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,93 @@
       <width>701</width>
       <height>541</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_Z">
+    <property name="geometry">
+     <rect>
+      <x>19</x>
+      <y>570</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_X">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>610</y>
+      <width>201</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_Y">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>570</y>
+      <width>201</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>360</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>610</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X ROTATION</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>570</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Z ROTATION</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>570</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Y ROTATION</string>
     </property>
    </widget>
   </widget>
@@ -66,6 +153,9 @@
    <slots>
     <signal>statusBarMessage(QString)</signal>
     <slot>showFileOpenDialog()</slot>
+    <slot>transFormX(int)</slot>
+    <slot>transFormY(int)</slot>
+    <slot>transFormZ(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -96,6 +186,54 @@
     <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_X</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>transFormX(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>652</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Y</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>transFormY(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>612</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Z</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>transFormZ(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>612</y>
     </hint>
     <hint type="destinationlabel">
      <x>369</x>

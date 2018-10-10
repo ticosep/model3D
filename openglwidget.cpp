@@ -26,6 +26,27 @@ void openglwidget::paintGL()
     model->drawModel();
 }
 
+void openglwidget::transFormX(int value)
+{
+
+    model->xTransform = value;
+    update();
+}
+
+void openglwidget::transFormY(int value)
+{
+
+    model->yTransform = value;
+    update();
+}
+
+void openglwidget::transFormZ(int value)
+{
+
+    model->zTransform = value;
+    update();
+}
+
 void openglwidget::showFileOpenDialog()
 {
     QByteArray fileFormat = "off";
