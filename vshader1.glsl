@@ -1,5 +1,5 @@
 #version 400
-layout(location = 0) in vec4 vPosition;
+layout(location = 0) in vec3 vPosition;
 out vec4 v2fcolor;
 
 uniform mat4 model;

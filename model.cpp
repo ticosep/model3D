@@ -12,6 +12,27 @@ Model::~Model()
     destroyShaders();
 }
 
+void Model::createNormals()
+{
+
+    normals = std::make_unique<QVector3D []>(numVertices);
+
+    for(unsigned int i = 0; i < numFaces; i++){
+
+        QVector3D v1 = vertices[indices [i * 3 + 1]].toVector3D() - vertices[indices [i * 3 + 0]].toVector3D();
+        QVector3D v2 = vertices[indices[i * 3 + 2]].toVector3D() - vertices[indices[i * 3 + 1]].toVector3D();
+
+        QVector3D vNormal = QVector3D::crossProduct(v1, v2).normalized();
+
+        normals[indices [i * 3 + 0]] += vNormal;
+        normals[indices [i * 3 + 1]] += vNormal;
+        normals[indices [i * 3 + 2]] += vNormal;
+
+    }
+
+
+}
+
 void Model::destroyVBOs()
 {
     // makeCurrent ();
@@ -214,8 +235,13 @@ void Model::readOFFFile (QString const & fileName)
                 indices [i * 3 + 2] = c;
             }
         stream.close();
+        createNormals();
+
         createShaders();
+
         createVBOs ();
       }
+
+
 }
 

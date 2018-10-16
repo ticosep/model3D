@@ -18,6 +18,10 @@ public:
     ~Model();
     std::unique_ptr <QVector4D[]> vertices;
     std::unique_ptr <unsigned int []> indices;
+    std::unique_ptr <QVector3D []> normals;
+
+    QVector3D normal;
+
     QOpenGLWidget * glWidget;
     unsigned int numVertices;
     unsigned int numFaces;
@@ -38,6 +42,7 @@ public:
     void destroyShaders();
     void readOFFFile(const QString &fileName);
     void drawModel();
+    void createNormals();
 
 
 };
