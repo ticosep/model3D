@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>742</width>
-    <height>704</height>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,6 +15,9 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="openglwidget" name="openGLWidget">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>19</x>
@@ -28,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>19</x>
-      <y>570</y>
+      <y>620</y>
       <width>201</width>
       <height>20</height>
      </rect>
@@ -44,7 +47,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>610</y>
+      <y>660</y>
       <width>201</width>
       <height>19</height>
      </rect>
@@ -60,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>570</y>
+      <y>620</y>
       <width>201</width>
       <height>19</height>
      </rect>
@@ -76,7 +79,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>610</y>
+      <y>660</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -89,7 +92,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>570</y>
+      <y>620</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -102,7 +105,7 @@
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>570</y>
+      <y>620</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -115,7 +118,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>610</y>
+      <y>660</y>
       <width>201</width>
       <height>19</height>
      </rect>
@@ -123,6 +126,41 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>570</y>
+      <width>711</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>0 - vShader1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>1 - Flat</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2 - Gouraud</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3 - Phong</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4 - Normal</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -169,6 +207,7 @@
     <slot>transFormX(int)</slot>
     <slot>transFormY(int)</slot>
     <slot>transFormZ(int)</slot>
+    <slot>changeShader(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -247,6 +286,22 @@
     <hint type="sourcelabel">
      <x>119</x>
      <y>612</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>openGLWidget</receiver>
+   <slot>changeShader(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>613</y>
     </hint>
     <hint type="destinationlabel">
      <x>369</x>

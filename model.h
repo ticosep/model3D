@@ -10,6 +10,7 @@
 #include <limits>
 #include <iostream>
 #include <memory>
+#include <material.h>
 
 class Model : public QOpenGLExtraFunctions
 {
@@ -31,10 +32,16 @@ public:
     GLuint vao = 0;
     GLuint vboVertices = 0;
     GLuint vboIndices = 0;
-    GLuint shaderProgram = 0;
+    std::vector<GLuint> shaderProgram;
     QMatrix4x4 modelMatrix;
     QVector3D midPoint;
     double invDiag;
+
+    Material material;
+    GLuint vboNormals = 0;
+    int shaderIndex = 0;
+    int numShaders = 0;
+
 
     void createVBOs();
     void createShaders();
